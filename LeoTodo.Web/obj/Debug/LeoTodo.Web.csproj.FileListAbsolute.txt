@@ -1,0 +1,114 @@
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\obj\Debug\LeoTodo.Web.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\LeoTodo.Web.dll.config
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\LeoTodo.Web.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\LeoTodo.Web.pdb
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Antlr3.Runtime.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\EntityFramework.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\EntityFramework.SqlServer.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\LeoTodo.Dominio.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.Facebook.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.Google.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.Twitter.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Web.Infrastructure.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Newtonsoft.Json.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Owin.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\System.Web.Helpers.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\System.Web.Mvc.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\System.Web.Optimization.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\System.Web.Razor.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\System.Web.WebPages.Deployment.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\System.Web.WebPages.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\System.Web.WebPages.Razor.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\WebGrease.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\LeoTodo.Dominio.pdb
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\System.Web.Helpers.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\System.Web.Mvc.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\System.Web.Optimization.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\System.Web.Razor.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\System.Web.WebPages.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\System.Web.WebPages.Deployment.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\System.Web.WebPages.Razor.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Antlr3.Runtime.pdb
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Newtonsoft.Json.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\EntityFramework.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\EntityFramework.SqlServer.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.Facebook.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.OAuth.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.Google.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.Twitter.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\obj\Debug\LeoTodo.Web.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Web\obj\Debug\LeoTodo.Web.pdb
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\LeoTodo.Web.dll.config
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\LeoTodo.Web.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\LeoTodo.Web.pdb
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Antlr3.Runtime.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\EntityFramework.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\EntityFramework.SqlServer.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\LeoTodo.Dominio.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.AspNet.Identity.Core.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.Cookies.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.Facebook.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.Google.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.OAuth.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.Twitter.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Web.Infrastructure.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Newtonsoft.Json.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Owin.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\System.Web.Helpers.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\System.Web.Mvc.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\System.Web.Optimization.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\System.Web.Razor.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\System.Web.WebPages.Deployment.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\System.Web.WebPages.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\System.Web.WebPages.Razor.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\WebGrease.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\LeoTodo.Dominio.pdb
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\System.Web.Helpers.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\System.Web.Mvc.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\System.Web.Optimization.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\System.Web.Razor.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\System.Web.WebPages.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\System.Web.WebPages.Deployment.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\System.Web.WebPages.Razor.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Antlr3.Runtime.pdb
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Newtonsoft.Json.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\EntityFramework.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\EntityFramework.SqlServer.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.AspNet.Identity.Core.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.Facebook.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.Cookies.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.OAuth.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.Google.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.Twitter.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\obj\Debug\LeoTodo.Web.csprojResolveAssemblyReference.cache
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\obj\Debug\LeoTodo.Web.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Web\obj\Debug\LeoTodo.Web.pdb

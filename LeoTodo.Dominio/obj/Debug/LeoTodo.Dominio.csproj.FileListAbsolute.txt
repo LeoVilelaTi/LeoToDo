@@ -1,0 +1,20 @@
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Dominio\bin\Debug\LeoTodo.Dominio.dll.config
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Dominio\bin\Debug\LeoTodo.Dominio.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Dominio\bin\Debug\LeoTodo.Dominio.pdb
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Dominio\bin\Debug\EntityFramework.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Dominio\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Dominio\bin\Debug\EntityFramework.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Dominio\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Dominio\obj\Debug\LeoTodo.Dominio.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Dominio\obj\Debug\LeoTodo.Dominio.dll
+c:\users\user\documents\visual studio 2013\Projects\LeoTodo\LeoTodo.Dominio\obj\Debug\LeoTodo.Dominio.pdb
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Dominio\bin\Debug\LeoTodo.Dominio.dll.config
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Dominio\bin\Debug\LeoTodo.Dominio.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Dominio\bin\Debug\LeoTodo.Dominio.pdb
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Dominio\bin\Debug\EntityFramework.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Dominio\bin\Debug\EntityFramework.SqlServer.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Dominio\bin\Debug\EntityFramework.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Dominio\bin\Debug\EntityFramework.SqlServer.xml
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Dominio\obj\Debug\LeoTodo.Dominio.csprojResolveAssemblyReference.cache
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Dominio\obj\Debug\LeoTodo.Dominio.dll
+F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Dominio\obj\Debug\LeoTodo.Dominio.pdb
