@@ -6,12 +6,26 @@ using System.Threading.Tasks;
 
 namespace LeoTodo.Dominio.Entidade
 {
-    public class Tarefa
+    public class Tarefa : BaseEntidade
     {
         public int Id { get; set; }
-        public string Title { get; set; }
-        public bool StatusDone { get; set; }
-        public DateTime? DataInclusao { get; set; }
+        public string Titulo { get; set; }
+        public bool Concluido { get; set; }
+        public DateTime DataInclusao { get; set; }
         public DateTime? DataAlteracao { get; set; }
+
+        public override bool Validar()
+        {
+            if (string.IsNullOrEmpty(this.Titulo))
+            {
+                return false;
+            }
+            else if (this.DataInclusao == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

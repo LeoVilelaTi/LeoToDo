@@ -7,10 +7,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LeoTodo.Dominio.Repositorios.Interfaces;
 
-namespace LeoTodo.Dominio.Repositorio
+namespace LeoTodo.Dominio.Repositorios
 {
-    public class TarefaRepositorio
+    public class TarefaRepositorioLeitura : ITarefaRepositorioLeitura, ITarefaRepositorioLeituraEscrita
     {
         private TaskContext contexto = new TaskContext();
 
@@ -26,26 +27,6 @@ namespace LeoTodo.Dominio.Repositorio
             var tarefas = contexto.Tarefas;
 
             return tarefas.ToList();
-        }
-
-        public Tarefa InsereTarefa(Tarefa tarefa)
-        {
-            contexto.Tarefas.Add(tarefa);
-            contexto.SaveChanges();
-
-            return tarefa;
-        }
-
-        public void AlteraTarefa(Tarefa tarefa)
-        {
-            contexto.Set<Tarefa>().AddOrUpdate(tarefa);
-            contexto.SaveChanges();
-        }
-
-        public void DeletaTarefa(Tarefa tarefa)
-        {
-            contexto.Entry(tarefa).State = EntityState.Deleted;
-            contexto.SaveChanges();
         }
     }
 }

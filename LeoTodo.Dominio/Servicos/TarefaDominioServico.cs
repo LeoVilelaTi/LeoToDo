@@ -1,5 +1,5 @@
 ﻿using LeoTodo.Dominio.Entidade;
-using LeoTodo.Dominio.Repositorio;
+using LeoTodo.Dominio.Repositorios;
 using System;
 using System.Collections.Generic;
 
@@ -7,39 +7,40 @@ namespace LeoTodo.Dominio.Servico
 {
     public class TarefaDomainService
     {
-        TarefaRepositorio repositorio = new TarefaRepositorio();
+        TarefaRepositorioLeitura repositorioLeitura = new TarefaRepositorioLeitura();
+        TarefaRepositorioEscrita repositorioEscrita = new TarefaRepositorioEscrita();
 
 
         public Tarefa ConsultarPorId(int id)
         {
-            var retorno = repositorio.ConsultarPorId(id);
+            var retorno = repositorioLeitura.ConsultarPorId(id);
 
             return retorno;
         }
 
-        public IEnumerable<Tarefa> ConsultarTodasTarefas()
+        public IEnumerable<Tarefa> ConsultarTodas()
         {
-            var retorno = repositorio.ConsultarTodas();
+            var retorno = repositorioLeitura.ConsultarTodas();
 
             return retorno;
         }
 
-        public Tarefa IncluirTarefa(Tarefa tarefa)
+        public Tarefa Incluir(Tarefa tarefa)
         {
-            var tarefaNova = repositorio.InsereTarefa(tarefa);
+            var tarefaNova = repositorioEscrita.Inserir(tarefa);
 
             return tarefaNova;
         }
 
-        public void AlterarTarefa(Tarefa tarefa)
+        public void Alterar(Tarefa tarefa)
         {
-            repositorio.AlteraTarefa(tarefa);
+            repositorioEscrita.Alterar(tarefa);
         }
 
-        public void DeleteTarefa(Tarefa tarefa)
+        public void Deletar(int id)
         {
-            var tarefaBanco = repositorio.ConsultarPorId(tarefa.Id);
-            repositorio.DeletaTarefa(tarefaBanco);
+            var tarefaBanco = repositorioLeitura.ConsultarPorId(id);
+            repositorioEscrita.Deletar(tarefaBanco);
         }
     }
 }

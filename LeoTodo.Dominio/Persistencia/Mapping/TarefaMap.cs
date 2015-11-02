@@ -17,8 +17,8 @@ namespace LeoTodo.Dominio.Persistencia.Mapping
 
             ToTable("Tarefas");
             Property(t => t.Id).HasColumnName("Id");
-            Property(t => t.Title).HasColumnName("Title");
-            Property(t => t.StatusDone).HasColumnName("StatusDone");
+            Property(t => t.Titulo).HasColumnName("Titulo");
+            Property(t => t.Concluido).HasColumnName("Concluido");
             Property(t => t.DataInclusao).HasColumnName("DataInclusao");
             Property(t => t.DataAlteracao).HasColumnName("DataAlteracao");
         }

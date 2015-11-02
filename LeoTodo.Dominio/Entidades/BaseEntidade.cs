@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,13 +10,21 @@ namespace LeoTodo.Dominio.Entidade
 {
     public abstract class BaseEntidade
     {
+        [NotMapped]
         public StringCollection Erros { get; private set; }
+
 
         public BaseEntidade()
         {
             this.Erros = new StringCollection();
         }
 
+        public void AdicionarErro(string mensagem)
+        {
+            this.Erros.Add(mensagem);
+        }
+
+        [NotMapped]
         public bool EstaValido
         {
             get
@@ -24,14 +33,9 @@ namespace LeoTodo.Dominio.Entidade
             }
         }
 
-        public void AdicionarErro(string mensagem)
+        public virtual bool Validar()
         {
-            this.Erros.Add(mensagem);
+            return new bool();
         }
-
-        //public virtual bool Validar()
-        //{
-
-        //}
     }
 }

@@ -51,7 +51,11 @@
     <Compile Include="Persistencia\Mapping\TarefaMap.cs" />
     <Compile Include="Persistencia\TaskContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositorios\TarefaRepositorio.cs" />
+    <Compile Include="Repositorios\Interfaces\ITarefaRepositorioEscrita.cs" />
+    <Compile Include="Repositorios\Interfaces\ITarefaRepositorioLeitura.cs" />
+    <Compile Include="Repositorios\Interfaces\ITarefaRepositorioLeituraEscrita.cs" />
+    <Compile Include="Repositorios\TarefaRepositorioEscrita.cs" />
+    <Compile Include="Repositorios\TarefaRepositorioLeitura.cs" />
     <Compile Include="Servicos\TarefaDominioServico.cs" />
   </ItemGroup>
   <ItemGroup>

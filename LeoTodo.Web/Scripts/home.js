@@ -37,8 +37,8 @@
         var campo = $(primeiraLinhaTabela).find('input[type=text]');
 
         checkBox.attr('data-id', linhaDados.Id);
-        $(checkBox).prop("checked", linhaDados.StatusDone);
-        $(campo).val(linhaDados.Title);
+        $(checkBox).prop("checked", linhaDados.Concluido);
+        $(campo).val(linhaDados.Titulo);
 
         InterfaceCampoDone(checkBox, campo);
     };
@@ -182,13 +182,13 @@ var IncluiTarefaNoBanco = function (checkBox, campo) {
     var retorno = null;
 
     var valStatus = $(checkBox).prop('checked');
-    var valTitle = $(campo).val();
+    var valTitulo = $(campo).val();
 
-    $.post(urlAjax, { title: valTitle, status: valStatus })
+    $.post(urlAjax, { titulo: valTitulo, status: valStatus })
     .done(function (jsonRetorno) {
         if (jsonRetorno != null && jsonRetorno.status == "OK") {
             retorno = jsonRetorno.data;
-            checkBox.attr('data-id', retorno.id);
+            checkBox.attr('data-id', retorno.Id);
         }
     });
 
@@ -200,9 +200,9 @@ var AlteraTarefaNoBanco = function (id, checkBox, campo) {
     var urlAjax = "Home/AlterarTarefa";
 
     var valStatus = $(checkBox).prop('checked');
-    var valTitle = $(campo).val();
+    var valTitulo = $(campo).val();
 
-    $.post(urlAjax, { id: id, title: valTitle, status: valStatus });
+    $.post(urlAjax, { id: id, titulo: valTitulo, status: valStatus });
 };
 
 var DeletaTarefaNoBanco = function (id) {

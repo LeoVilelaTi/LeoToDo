@@ -18,28 +18,28 @@ namespace LeoTodo.Web.Proxy
             return tarefaBanco;
         }
 
-        public IEnumerable<Tarefa> ConsultarTarefas()
+        public IEnumerable<Tarefa> ConsultarTodas()
         {
-            var listaTarefasRetorno = tarefaDomainService.ConsultarTodasTarefas();
+            var listaTarefasRetorno = tarefaDomainService.ConsultarTodas();
 
             return listaTarefasRetorno;
         }
 
-        public Tarefa IncluirTarefa(Tarefa tarefa)
+        public Tarefa Incluir(Tarefa tarefa)
         {
-            var tarefaNova = tarefaDomainService.IncluirTarefa(tarefa);
+            var tarefaNova = tarefaDomainService.Incluir(tarefa);
 
             return tarefaNova;
         }
 
-        public void AlterarTarefa(Tarefa tarefa)
+        public void Alterar(Tarefa tarefa)
         {
-            tarefaDomainService.AlterarTarefa(tarefa);
+            tarefaDomainService.Alterar(tarefa);
         }
 
-        public void DeletarTarefa(Tarefa tarefa)
+        public void Deletar(int id)
         {
-            tarefaDomainService.DeleteTarefa(tarefa);
+            tarefaDomainService.Deletar(id);
         }
     }
 }

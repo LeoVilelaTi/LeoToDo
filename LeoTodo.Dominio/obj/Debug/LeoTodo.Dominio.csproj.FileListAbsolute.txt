@@ -15,6 +15,5 @@ F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Dominio\bin\Debug\EntityFramework.dll
 F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Dominio\bin\Debug\EntityFramework.SqlServer.dll
 F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Dominio\bin\Debug\EntityFramework.xml
 F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Dominio\bin\Debug\EntityFramework.SqlServer.xml
-F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Dominio\obj\Debug\LeoTodo.Dominio.csprojResolveAssemblyReference.cache
 F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Dominio\obj\Debug\LeoTodo.Dominio.dll
 F:\POC's\4 - POC's IBM\LeoTodo\LeoTodo.Dominio\obj\Debug\LeoTodo.Dominio.pdb

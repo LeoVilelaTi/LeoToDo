@@ -33,7 +33,7 @@ namespace LeoTodo.Web.Controllers
             {
                 var proxy = new TarefaProxy();
 
-                listaRetornoTarefas = proxy.ConsultarTarefas();
+                listaRetornoTarefas = proxy.ConsultarTodas();
 
                 if (listaRetornoTarefas == null)
                 {
@@ -48,7 +48,7 @@ namespace LeoTodo.Web.Controllers
             return Json(new { status = mensagem, data = listaRetornoTarefas }, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult IncluirTarefa(bool status, string title)
+        public JsonResult IncluirTarefa(bool status, string titulo)
         {
             var mensagem = "OK";
             Tarefa tarefaNova = null;
@@ -59,12 +59,17 @@ namespace LeoTodo.Web.Controllers
 
                 tarefaNova = new Tarefa()
                 {
-                    StatusDone = status,
-                    Title = title,
+                    Concluido = status,
+                    Titulo = titulo,
                     DataInclusao = DateTime.Now
                 };
 
-                tarefaNova = proxy.IncluirTarefa(tarefaNova);
+                if (!tarefaNova.Validar())
+                {
+                    throw new Exception();
+                }
+
+                tarefaNova = proxy.Incluir(tarefaNova);
             }
             catch (Exception ex)
             {
@@ -74,7 +79,7 @@ namespace LeoTodo.Web.Controllers
             return Json(new { status = mensagem, data = tarefaNova }, JsonRequestBehavior.AllowGet);
         }
 
-        public void AlterarTarefa(int id, bool status, string title)
+        public void AlterarTarefa(int id, bool status, string titulo)
         {
             Tarefa tarefaNova = null;
             Tarefa tarefaBanco = null;
@@ -89,13 +94,18 @@ namespace LeoTodo.Web.Controllers
                 tarefaNova = new Tarefa()
                 {
                     Id = id,
-                    StatusDone = status,
-                    Title = title,
+                    Concluido = status,
+                    Titulo = titulo,
                     DataInclusao = tarefaBanco.DataInclusao,
                     DataAlteracao = DateTime.Now
                 };
 
-                proxy.AlterarTarefa(tarefaNova);
+                if (!tarefaNova.Validar())
+                {
+                    throw new Exception();
+                }
+
+                proxy.Alterar(tarefaNova);
             }
             catch (Exception ex)
             {
@@ -104,18 +114,11 @@ namespace LeoTodo.Web.Controllers
 
         public void DeletarTarefa(int id)
         {
-            Tarefa tarefaNova = null;
-
             try
             {
                 var proxy = new TarefaProxy();
 
-                tarefaNova = new Tarefa()
-                {
-                    Id = id
-                };
-
-                proxy.DeletarTarefa(tarefaNova);
+                proxy.Deletar(id);
             }
             catch (Exception ex)
             {
