@@ -11,6 +11,13 @@ namespace LeoTodo.Web.Proxy
     {
         TarefaDomainService tarefaDomainService = new TarefaDomainService();
 
+        public Tarefa ConsultarPorId(int id)
+        {
+            var tarefaBanco = tarefaDomainService.ConsultarPorId(id);
+
+            return tarefaBanco;
+        }
+
         public IEnumerable<Tarefa> ConsultarTarefas()
         {
             var listaTarefasRetorno = tarefaDomainService.ConsultarTodasTarefas();

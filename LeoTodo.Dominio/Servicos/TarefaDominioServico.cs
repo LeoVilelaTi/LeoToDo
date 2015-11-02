@@ -9,6 +9,14 @@ namespace LeoTodo.Dominio.Servico
     {
         TarefaRepositorio repositorio = new TarefaRepositorio();
 
+
+        public Tarefa ConsultarPorId(int id)
+        {
+            var retorno = repositorio.ConsultarPorId(id);
+
+            return retorno;
+        }
+
         public IEnumerable<Tarefa> ConsultarTodasTarefas()
         {
             var retorno = repositorio.ConsultarTodas();

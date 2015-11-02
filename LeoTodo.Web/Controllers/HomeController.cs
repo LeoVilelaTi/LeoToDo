@@ -14,12 +14,12 @@ namespace LeoTodo.Web.Controllers
         public ActionResult Index()
         {
             // Login
-            FormsAuthentication.SetAuthCookie("email", false);
-            Session["UsuarioLogado"] = null; // A entidade do usuario que esta logado
+            //FormsAuthentication.SetAuthCookie("email", false);
+            //Session["UsuarioLogado"] = null; // A entidade do usuario que esta logado
 
             // Logout
-            FormsAuthentication.SignOut();
-            Session.Abandon();
+            //FormsAuthentication.SignOut();
+            //Session.Abandon();
 
             return View();
         }
@@ -59,8 +59,8 @@ namespace LeoTodo.Web.Controllers
 
                 tarefaNova = new Tarefa()
                 {
-                    Concluido = status,
-                    Titulo = title,
+                    StatusDone = status,
+                    Title = title,
                     DataInclusao = DateTime.Now
                 };
 
@@ -77,16 +77,21 @@ namespace LeoTodo.Web.Controllers
         public void AlterarTarefa(int id, bool status, string title)
         {
             Tarefa tarefaNova = null;
+            Tarefa tarefaBanco = null;
 
             try
             {
                 var proxy = new TarefaProxy();
 
+                tarefaBanco = proxy.ConsultarPorId(id);
+                tarefaNova = tarefaBanco;
+
                 tarefaNova = new Tarefa()
                 {
                     Id = id,
-                    Concluido = status,
-                    Titulo = title,
+                    StatusDone = status,
+                    Title = title,
+                    DataInclusao = tarefaBanco.DataInclusao,
                     DataAlteracao = DateTime.Now
                 };
 

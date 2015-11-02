@@ -46,12 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidade\BaseEntidade.cs" />
-    <Compile Include="Entidade\Tarefa.cs" />
+    <Compile Include="Entidades\BaseEntidade.cs" />
+    <Compile Include="Entidades\Tarefa.cs" />
+    <Compile Include="Persistencia\Mapping\TarefaMap.cs" />
     <Compile Include="Persistencia\TaskContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositorio\TarefaRepositorio.cs" />
-    <Compile Include="Servico\TarefaDominioServico.cs" />
+    <Compile Include="Repositorios\TarefaRepositorio.cs" />
+    <Compile Include="Servicos\TarefaDominioServico.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
