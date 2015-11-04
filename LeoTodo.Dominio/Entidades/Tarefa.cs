@@ -25,7 +25,7 @@ namespace LeoTodo.Dominio.Entidade
                 return false;
             }
 
-            return true;
+            return true; 
         }
     }
 }

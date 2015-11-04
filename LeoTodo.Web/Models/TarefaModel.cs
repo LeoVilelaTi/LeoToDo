@@ -8,14 +8,21 @@ namespace LeoTodo.Web.Models
 {
     public class TarefaModel
     {
-        private int Id { get; set; }
-        private string title { get; set; }
+        public int Id { get; set; }
+        public string Titulo { get; set; }
+        public bool Concluido { get; set; }
+        public DateTime DataInclusao { get; set; }
+        public DateTime? DataAlteracao { get; set; }
 
         public Tarefa ToEntidade()
         {
             return new Tarefa
             {
                 Id = this.Id,
+                Titulo = this.Titulo,
+                Concluido = this.Concluido,
+                DataInclusao = this.DataInclusao,
+                DataAlteracao = this.DataAlteracao
             };
         }
     }

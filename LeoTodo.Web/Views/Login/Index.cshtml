@@ -1,0 +1,27 @@
+﻿@model LeoTodo.Web.Models.TarefaModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+
+@using (Ajax.BeginForm("ConsultaTarefaPorId", "Login", null, new AjaxOptions 
+{
+    HttpMethod = "POST", 
+    OnSuccess = "SuccessMessage", 
+    OnFailure = "FailMessage",
+    UpdateTargetId = "resultadoPesquisa" 
+}))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.EditorFor(x=>x.Id)
+    <input type="submit" value="Search">
+}
+
+<div id="resultadoPesquisa">  </div>
+
+

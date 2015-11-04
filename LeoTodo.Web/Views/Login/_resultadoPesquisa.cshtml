@@ -1,0 +1,12 @@
+﻿@model IEnumerable<LeoTodo.Web.Models.TarefaModel>
+
+<table>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> @Html.DisplayFor(modelItem => item.Titulo) </td>
+        </tr>
+    }
+
+</table>
