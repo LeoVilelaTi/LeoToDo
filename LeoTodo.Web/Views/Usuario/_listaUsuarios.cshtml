@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;   
+}
+
+<table style="margin-top: 60px" class="table table-bordered">
+    <thead>
+        <tr>
+            <th class="col-xs-2 text-center"> Identificador </th>
+            <th class="col-xs-3 text-center"> Nome </th>
+            <th class="col-xs-3 text-center"> Email </th>
+            <th class="col-xs-3 text-center"> Atualiza/Deleta </th>
+            <th class="col-xs-2 text-center"> Reset de Senhas </th>
+        </tr>
+    </thead>
+
+    @foreach (LeoTodo.Web.Models.UsuarioModel usuario in ViewBag.ListaUsuarios)
+    {
+        <tbody>
+            @using (@Html.BeginForm("Put", "Usuario", FormMethod.Post))
+            {
+                <tr>
+                    <td class="text-center">
+                        @Html.Hidden("Id", @usuario.Id)
+                        @Html.TextBox("Identificador", @usuario.Identificador.Trim(), new { @class = "form-control", placeholder = "" })
+                    </td>
+                    <td>
+                        @Html.TextBox("Nome", @usuario.Nome.Trim(), new { @class = "form-control", placeholder = "" })
+                    </td>
+                    <td>
+                        @Html.TextBox("Email", @usuario.Email.Trim(), new { @class = "form-control", placeholder = "" })
+                    </td>
+                    <td class="text-center">
+                        <button name="Id" class="btn btn-warning" type="submit" role="button"> Atualizar </button>
+                        <a href="~/Usuario/Delete/@usuario.Id" class="btn btn-danger" role="button"> Excluir </a>
+                    </td>
+                    <td class="text-center">
+                        <a href="~/Usuario/ResetSenha/@usuario.Id" class="btn btn-info" role="button"> Reset </a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    }
+</table>
+

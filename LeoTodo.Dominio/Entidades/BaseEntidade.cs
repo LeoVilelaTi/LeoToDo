@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeoTodo.Dominio.Entidade
+namespace LeoTodo.Dominio.Entidades
 {
     public abstract class BaseEntidade
     {

@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity.Migrations;
-using LeoTodo.Dominio.Entidade;
+using LeoTodo.Dominio.Entidades;
 using LeoTodo.Dominio.Persistencia;
 using System;
 using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿using LeoTodo.Dominio.Entidade;
+﻿using LeoTodo.Dominio.Entidades;
 using LeoTodo.Dominio.Persistencia;
 using System;
 using System.Collections.Generic;
@@ -17,6 +17,8 @@ namespace LeoTodo.Dominio.Repositorios
 
         public Tarefa Inserir(Tarefa tarefa)
         {
+            tarefa.DataInclusao = DateTime.Now;
+
             contexto.Tarefas.Add(tarefa);
             contexto.SaveChanges();
 

@@ -1,5 +1,5 @@
-﻿using LeoTodo.Dominio.Entidade;
-using LeoTodo.Dominio.Servico;
+﻿using LeoTodo.Dominio.Entidades;
+using LeoTodo.Dominio.Servicos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace LeoTodo.Web.Proxy
 {
     public class TarefaProxy
     {
-        TarefaDomainService tarefaDomainService = new TarefaDomainService();
+        TarefaDominioService tarefaDomainService = new TarefaDominioService();
 
         public Tarefa ConsultarPorId(int id)
         {

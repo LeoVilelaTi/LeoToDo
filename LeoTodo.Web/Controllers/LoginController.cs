@@ -5,36 +5,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace LeoTodo.Web.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Login
         public ActionResult Index()
         {
-            return View();
+            return View(new LoginModel());
         }
 
-        [HttpPost]
-        public ActionResult ConsultaTarefaPorId(TarefaModel tarefaModel)
+        public ActionResult LogIn(LoginModel login)
         {
-            TarefaProxy proxy = new TarefaProxy();
-            var tarefa = proxy.ConsultarPorId(tarefaModel.Id);
+            LoginProxy proxy = new LoginProxy();
 
-            var listaTarefasModel = new List<TarefaModel>
-                {
-                    new TarefaModel
-                    {
-                        Id = tarefa.Id,
-                        Titulo = tarefa.Titulo,
-                        Concluido = tarefa.Concluido,
-                        DataInclusao = tarefa.DataInclusao,
-                        DataAlteracao = tarefa.DataAlteracao
-                    }
-                };
 
-            return PartialView("_resultadoPesquisa", listaTarefasModel);
+            if (proxy.Autenticacao(login.Identificador, login.Senha))
+            {
+                //var usuario = proxy.ConsultarUsuarioPorIdentificacao(login.Identificador);
+
+                //FormsAuthentication.SetAuthCookie(login.Identificador, false);
+                //Session["UsuarioLogado"] = usuario;
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult LogOut()
+        {
+            //FormsAuthentication.SignOut();
+            //Session.Abandon();
+
+            return RedirectToAction("Index");
         }
     }
 }

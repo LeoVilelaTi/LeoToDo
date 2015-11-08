@@ -1,0 +1,36 @@
+﻿@model LeoTodo.Web.Models.UsuarioModel
+
+
+@using (@Html.BeginForm("Post", "Usuario", FormMethod.Post))
+{
+    <div class="form-group">
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label for="Identificador"> Usuario </label>
+                @Html.TextBox("Identificador", Model.Identificador, new { @class = "form-control", placeholder = "Digite seu Usuário..." })
+            </div>
+
+            <div class="form-group">
+                <label for="Nome"> Nome </label>
+                @Html.TextBox("Nome", Model.Nome, new { @class = "form-control", placeholder = "Digite seu Nome..." })
+            </div>
+
+            <div class="form-group">
+                <label for="Email"> Email </label>
+                @Html.TextBox("Email", Model.Email, new { @class = "form-control", placeholder = "Digite seu Email..." })
+            </div>
+
+            <div class="form-group">
+                <label for="Senha"> Senha </label>
+                @Html.TextBox("Senha", Model.Senha, new { @class = "form-control", type = "password", placeholder = "Digite sua Senha..." })
+            </div>
+
+            <div class="form-group text-right">
+                <button type="submit" class="btn btn-success"> Gravar </button>
+            </div>
+
+        </div>
+    </div>
+}
+
+@Html.Partial("~/Views/Usuario/_listaUsuarios.cshtml", Model)

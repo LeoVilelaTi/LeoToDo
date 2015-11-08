@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Tela de boas vindas </title>
+
+    @Styles.Render("~/CSS")
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="header">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"> Projeto ToDo</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+            <div class="jumbotron">
+                <h2> Bem vindo!</h2>
+                <p> Acesse no link abaixo sua conta </p>
+                <a href="~/" class="btn btn-success"> Login </a>
+            </div>
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
+</body>
+</html>

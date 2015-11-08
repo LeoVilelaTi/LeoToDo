@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<table style="margin-top: 60px" class="table table-bordered">
+    <thead>
+        <tr>
+            <th class="col-xs-1 text-center"> Feito </th>
+            <th class="col-xs-4 text-center"> Tarefa </th>
+            <th class="col-xs-2 text-center"></th>
+        </tr>
+    </thead>
+
+    @foreach (LeoTodo.Web.Models.TarefaModel tarefa in ViewBag.ListaTarefas)
+    {
+        <tbody>
+            @using (@Html.BeginForm("Put", "Tarefa", FormMethod.Post))
+            {
+                <tr>
+                    <td class="text-center">
+                        @Html.Hidden("Id", @tarefa.Id)
+                        @Html.CheckBox("Concluido", @tarefa.Concluido, new { @checked = @tarefa.Concluido })
+                    </td>
+                    <td>
+                        @Html.TextBox("Titulo", @tarefa.Titulo.Trim(), new { @class = "form-control" })
+                    </td>
+                    <td class="text-center">
+                        <button name="Id" class="btn btn-warning" type="submit" role="button"> Atualizar </button>
+                        <a href="~/Tarefa/Delete/@tarefa.Id" class="btn btn-danger" role="button"> Excluir </a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    }
+</table>

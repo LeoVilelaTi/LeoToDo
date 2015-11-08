@@ -1,11 +1,11 @@
-﻿using LeoTodo.Dominio.Entidade;
+﻿using LeoTodo.Dominio.Entidades;
 using LeoTodo.Dominio.Repositorios;
 using System;
 using System.Collections.Generic;
 
-namespace LeoTodo.Dominio.Servico
+namespace LeoTodo.Dominio.Servicos
 {
-    public class TarefaDomainService
+    public class TarefaDominioService
     {
         TarefaRepositorioLeitura repositorioLeitura = new TarefaRepositorioLeitura();
         TarefaRepositorioEscrita repositorioEscrita = new TarefaRepositorioEscrita();
