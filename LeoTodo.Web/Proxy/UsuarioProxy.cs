@@ -18,6 +18,12 @@ namespace LeoTodo.Web.Proxy
             return usuarioBanco;
         }
 
+        public Usuario ConsultarUsuarioPorIdentificador(string Identificador)
+        {
+           var usuario = usuarioDomainService.ConsultarPorIdentificador(Identificador);
+            return usuario;
+        }
+
         public IEnumerable<Usuario> ConsultarTodas()
         {
             var listausuariosRetorno = usuarioDomainService.ConsultarTodas();
@@ -40,6 +46,16 @@ namespace LeoTodo.Web.Proxy
         public void Deletar(int id)
         {
             usuarioDomainService.Deletar(id);
+        }
+
+        public void EnviaEmailParaRecuperacaoSenha(string email)
+        {
+            usuarioDomainService.EnviaEmailParaRecuperacaoSenha(email);
+        }
+
+        public void ResetSenha(Usuario usuario)
+        {
+            usuarioDomainService.ResetSenha(usuario);
         }
     }
 }

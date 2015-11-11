@@ -42,5 +42,12 @@ namespace LeoTodo.Dominio.Servicos
             var tarefaBanco = repositorioLeitura.ConsultarPorId(id);
             repositorioEscrita.Deletar(tarefaBanco);
         }
+
+        public IEnumerable<Tarefa> ConsultarPorUsuario(int id)
+        {
+            var listaUsuarios = repositorioLeitura.ConsultarPorUsuario(id);
+
+            return listaUsuarios;
+        }
     }
 }

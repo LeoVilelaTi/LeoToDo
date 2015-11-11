@@ -29,6 +29,13 @@ namespace LeoTodo.Dominio.Servicos
             return retorno;
         }
 
+        public Usuario ConsultarPorIdentificador(string identificador)
+        {
+            var usuario = repositorioLeitura.ConsultarUsuarioPorIdentificador(identificador);
+
+            return usuario;
+        }
+
         public Usuario Incluir(Usuario usuario)
         {
             GerarGuidParaUsuario(usuario);
@@ -79,6 +86,25 @@ namespace LeoTodo.Dominio.Servicos
             return false;
         }
 
+
+        public void EnviaEmailParaRecuperacaoSenha(string email)
+        {
+            var usuario = repositorioLeitura.ConsultarUsuarioPorEmail(email);
+            GerarGuidParaUsuario(usuario);
+            repositorioEscrita.Alterar(usuario);
+
+            EnviaEmailParaRecuperarSenha(usuario);
+        }
+
+        public void ResetSenha(Usuario usuario)
+        {
+            var usuarioAtual = repositorioLeitura.ConsultarUsuarioPorIdentificador(usuario.Identificador);
+
+            CriptografaSenha(usuario);
+
+            repositorioEscrita.Alterar(usuario);
+        }
+
         private bool SenhaCorreta(string senhaBanco, string senhaDigitada)
         {
             var senhaDigitadaCriptografada = GerarHashSha1ComSalt(senhaDigitada.Trim());
@@ -111,9 +137,18 @@ namespace LeoTodo.Dominio.Servicos
 
         private void EnviaEmailParaValidarNovoUsuario(Usuario usuario)
         {
-            string destinatario = "testemeulogin@gmail.com";
+            string destinatario = usuario.Email.Trim();
             string assunto = "Ative sua conta para começar a acessar o sistema To Do.";
-            string mensagem = string.Format("Acesse o link: {0}/{1}/{2}?identificador={3}&guid={4}", "http://localhost:9597", "Usuario", "PrimeiroAcesso", usuario.Identificador, usuario.GuidUsuarioAtivo);
+            string mensagem = string.Format("Acesse o link: {0}/{1}/{2}?identificador={3}&guid={4}", "http://localhost:9597", "Usuario", "PrimeiroAcesso", usuario.Identificador.Trim(), usuario.GuidUsuarioAtivo.Trim());
+
+            Email.EnviarEmail(destinatario, assunto, mensagem);
+        }
+
+        private void EnviaEmailParaRecuperarSenha(Usuario usuario)
+        {
+            string destinatario = usuario.Email.Trim();
+            string assunto = "Redefina sua senha para voltar a utilizar nosso sistema To Do.";
+            string mensagem = string.Format("Acesse o link: {0}/{1}/{2}?identificador={3}&guid={4}", "http://localhost:9597", "Usuario", "RedefinirSenha", usuario.Identificador.Trim(), usuario.GuidUsuarioAtivo.Trim());
 
             Email.EnviarEmail(destinatario, assunto, mensagem);
         }

@@ -10,9 +10,10 @@ namespace LeoTodo.Dominio.Servicos
 {
     public static class Email
     {
-        public static void EnviarEmail(string destinatario, string assunto, string mensagem)
+        public static bool EnviarEmail(string destinatario, string assunto, string mensagem)
         {
             MailMessage msg = new MailMessage();
+            bool enviado = false;
 
             msg.From = new MailAddress("testemeulogin@gmail.com");
             msg.To.Add(destinatario);
@@ -27,8 +28,19 @@ namespace LeoTodo.Dominio.Servicos
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
                 smtp.Credentials = new System.Net.NetworkCredential("testemeulogin@gmail.com", "abc@123456789");
-                smtp.Send(msg);
+
+                //try
+                //{
+                    smtp.Send(msg);
+                //    enviado = true;
+                //}
+                //catch (Exception ex)
+                //{
+                //    enviado = false;
+                //}
             }
+
+            return enviado;
         }
     }
 }

@@ -28,5 +28,13 @@ namespace LeoTodo.Dominio.Repositorios
 
             return tarefas.ToList();
         }
+
+
+        public IEnumerable<Tarefa> ConsultarPorUsuario(int idUsuario)
+        {
+            var tarefas = contexto.Tarefas;
+
+            return tarefas.Where(x => x.IdUsuario == idUsuario).ToList();
+        }
     }
 }

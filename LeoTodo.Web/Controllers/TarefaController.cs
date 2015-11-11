@@ -27,6 +27,8 @@ namespace LeoTodo.Web.Controllers
         public ActionResult Post(TarefaModel tarefa)
         {
             TarefaProxy proxy = new TarefaProxy();
+
+            tarefa.IdUsuario = ((Usuario)Session["UsuarioLogado"]).Id;
             proxy.Incluir(tarefa.ToEntidade());
             
             return RedirectToAction("Index");
@@ -80,7 +82,10 @@ namespace LeoTodo.Web.Controllers
         private void listaTarefas()
         {
             TarefaProxy proxy = new TarefaProxy();
-            var listaTarefas = proxy.ConsultarTodas();
+
+            var usuario = Session["UsuarioLogado"];
+
+            var listaTarefas = proxy.ConsultarPorUsuario(((Usuario)usuario).Id).ToList();
 
             var listaTarefasModel = listaTarefas.Select(TarefaFabrica.Criar).ToList();
 

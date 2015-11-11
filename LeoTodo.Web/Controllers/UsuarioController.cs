@@ -1,4 +1,5 @@
-﻿using LeoTodo.Web.Fabrica;
+﻿using LeoTodo.Dominio.Entidades;
+using LeoTodo.Web.Fabrica;
 using LeoTodo.Web.Models;
 using LeoTodo.Web.Proxy;
 using System;
@@ -28,7 +29,7 @@ namespace LeoTodo.Web.Controllers
             UsuarioProxy proxy = new UsuarioProxy();
             proxy.Incluir(usuario.ToEntidade());
 
-            return RedirectToAction("Index");
+            return PartialView("~/Views/Usuario/NovoUsuarioCadastrado.cshtml");            
         }
 
         /// <summary>
@@ -81,14 +82,74 @@ namespace LeoTodo.Web.Controllers
         public ActionResult PrimeiroAcesso(string identificador, string guid)
         {
             LoginProxy proxy = new LoginProxy();
-            proxy.UsuarioAtivado(identificador, guid);
+            bool valido = proxy.UsuarioAtivado(identificador, guid);
 
-            return PartialView("~/Views/Usuario/_boasVindasNovoUsuario.cshtml");
+            if (valido)
+            {
+                return PartialView("~/Views/Usuario/BoasVindasNovoUsuario.cshtml");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
-        public ActionResult ResetSenha(int id, string senha)
+        public ActionResult EsqueciMinhaSenha()
         {
             return View();
+        }
+
+        public ActionResult EnviaEmailParaRecuperacaoSenha(string email)
+        {
+            UsuarioProxy proxy = new UsuarioProxy();
+            proxy.EnviaEmailParaRecuperacaoSenha(email);
+
+            return PartialView("~/Views/Usuario/EnvioDeEmailParaRedefinicaoSenha.cshtml");
+        }
+
+        public ActionResult RedefinirSenha(string identificador, string guid)
+        {
+            LoginProxy proxyLogin = new LoginProxy();
+            bool valido = proxyLogin.UsuarioAtivado(identificador, guid);
+
+            if (valido)
+            {
+                UsuarioProxy proxyUsuario = new UsuarioProxy();
+                var usuario = proxyUsuario.ConsultarUsuarioPorIdentificador(identificador);
+
+                var usuarioModel = new UsuarioModel
+                {
+                    Id = usuario.Id,
+                    Identificador = usuario.Identificador,
+                    Nome = usuario.Nome,
+                    Email = usuario.Email,
+                    Senha = usuario.Senha,
+                    GuidUsuarioAtivo = usuario.GuidUsuarioAtivo,
+                    DataInclusao = usuario.DataInclusao,
+                    DataAlteracao = usuario.DataAlteracao
+                };
+
+
+                return View(usuarioModel);
+            }
+            else
+            {
+                return PartialView("~/Views/Usuario/ResetDeSenhaNaoRealizado.cshtml");
+            }
+        }
+
+        public ActionResult ResetSenha(Usuario usuario)
+        {
+            UsuarioProxy proxy = new UsuarioProxy();
+
+            var usuarioAtual = proxy.ConsultarUsuarioPorIdentificador(usuario.Identificador);
+
+            usuarioAtual.Senha = usuario.Senha;
+            usuarioAtual.DataAlteracao = DateTime.Now;
+
+            proxy.ResetSenha(usuarioAtual);
+
+            return RedirectToAction("Index", "Login");
         }
 
         private void listaUsuarios()

@@ -1,36 +1,82 @@
 ﻿@model LeoTodo.Web.Models.UsuarioModel
 
-
-@using (@Html.BeginForm("Post", "Usuario", FormMethod.Post))
-{
-    <div class="form-group">
-        <div class="col-xs-4">
-            <div class="form-group">
-                <label for="Identificador"> Usuario </label>
-                @Html.TextBox("Identificador", Model.Identificador, new { @class = "form-control", placeholder = "Digite seu Usuário..." })
-            </div>
-
-            <div class="form-group">
-                <label for="Nome"> Nome </label>
-                @Html.TextBox("Nome", Model.Nome, new { @class = "form-control", placeholder = "Digite seu Nome..." })
-            </div>
-
-            <div class="form-group">
-                <label for="Email"> Email </label>
-                @Html.TextBox("Email", Model.Email, new { @class = "form-control", placeholder = "Digite seu Email..." })
-            </div>
-
-            <div class="form-group">
-                <label for="Senha"> Senha </label>
-                @Html.TextBox("Senha", Model.Senha, new { @class = "form-control", type = "password", placeholder = "Digite sua Senha..." })
-            </div>
-
-            <div class="form-group text-right">
-                <button type="submit" class="btn btn-success"> Gravar </button>
-            </div>
-
-        </div>
-    </div>
+@{
+    Layout = null;
 }
 
-@Html.Partial("~/Views/Usuario/_listaUsuarios.cshtml", Model)
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    @Styles.Render("~/CSS")
+
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="header">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"> Projeto ToDo</a>
+                </div>
+                @if (Session["UsuarioLogado"] != null)
+                {
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <div class="navbar-form navbar-right">
+
+                            <a href="~/Login/LogOut" type="submit" class="btn btn-success">Sair</a>
+
+                        </div>
+                    </div>
+                }
+            </div>
+    </nav>
+
+
+
+
+    <div class="container" style="margin-top: 60px">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                @using (@Html.BeginForm("Post", "Usuario", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label for="Identificador"> Usuario </label>
+                                @Html.TextBox("Identificador", Model.Identificador, new { @class = "form-control", placeholder = "Digite seu Usuário..." })
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Nome"> Nome </label>
+                                @Html.TextBox("Nome", Model.Nome, new { @class = "form-control", placeholder = "Digite seu Nome..." })
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Email"> Email </label>
+                                @Html.TextBox("Email", Model.Email, new { @class = "form-control", placeholder = "Digite seu Email..." })
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Senha"> Senha </label>
+                                @Html.TextBox("Senha", Model.Senha, new { @class = "form-control", type = "password", placeholder = "Digite sua Senha..." })
+                            </div>
+
+                            <div class="form-group text-right">
+                                <button type="submit" class="btn btn-success"> Gravar </button>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

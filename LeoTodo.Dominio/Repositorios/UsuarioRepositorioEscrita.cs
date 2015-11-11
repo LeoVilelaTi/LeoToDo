@@ -18,6 +18,7 @@ namespace LeoTodo.Dominio.Repositorios
 
         public Usuario Inserir(Usuario usuario)
         {
+ 
             usuario.DataInclusao = DateTime.Now;
 
             contexto.Usuarios.Add(usuario);

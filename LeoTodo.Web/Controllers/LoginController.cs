@@ -18,15 +18,16 @@ namespace LeoTodo.Web.Controllers
 
         public ActionResult LogIn(LoginModel login)
         {
-            LoginProxy proxy = new LoginProxy();
+            LoginProxy LoginProxy = new LoginProxy();
+            UsuarioProxy UsuarioProxy = new UsuarioProxy();
 
 
-            if (proxy.Autenticacao(login.Identificador, login.Senha))
+            if (LoginProxy.Autenticacao(login.Identificador, login.Senha))
             {
-                //var usuario = proxy.ConsultarUsuarioPorIdentificacao(login.Identificador);
+                var usuario = UsuarioProxy.ConsultarUsuarioPorIdentificador(login.Identificador);
 
-                //FormsAuthentication.SetAuthCookie(login.Identificador, false);
-                //Session["UsuarioLogado"] = usuario;
+                FormsAuthentication.SetAuthCookie(login.Identificador, false);
+                Session["UsuarioLogado"] = usuario;
 
                 return RedirectToAction("Index", "Home");
             }
@@ -36,8 +37,8 @@ namespace LeoTodo.Web.Controllers
 
         public ActionResult LogOut()
         {
-            //FormsAuthentication.SignOut();
-            //Session.Abandon();
+            FormsAuthentication.SignOut();
+            Session.Abandon();
 
             return RedirectToAction("Index");
         }

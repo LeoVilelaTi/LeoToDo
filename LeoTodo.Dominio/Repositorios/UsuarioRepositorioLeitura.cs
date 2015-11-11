@@ -44,5 +44,21 @@ namespace LeoTodo.Dominio.Repositorios
 
             return usuario;
         }
+
+        public Usuario ConsultarUsuarioPorEmail(string email)
+        {
+            var usuarios = contexto.Usuarios;
+
+            var usuario = usuarios.FirstOrDefault(x => email.Trim().ToLower().Equals(x.Email));
+
+            return usuario;
+        }
+
+        public IEnumerable<Usuario> ConsultarProdutosPorUsuarios()
+        {
+            var usuarios = contexto.Usuarios;
+
+            return usuarios.ToList();
+        }
     }
 }

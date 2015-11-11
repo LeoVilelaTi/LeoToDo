@@ -13,5 +13,6 @@ namespace LeoTodo.Dominio.Repositorios.Interfaces
         IEnumerable<Usuario> ConsultarTodas();
         Usuario ConsultarUsuarioAtivoPorIdentificador(string identificacao);
         Usuario ConsultarUsuarioPorIdentificador(string identificador);
+        Usuario ConsultarUsuarioPorEmail(string email);
     }
 }

@@ -41,5 +41,11 @@ namespace LeoTodo.Web.Proxy
         {
             tarefaDomainService.Deletar(id);
         }
+        public IEnumerable<Tarefa> ConsultarPorUsuario(int id)
+        {
+            var listaUsuarios = tarefaDomainService.ConsultarPorUsuario(id);
+
+            return listaUsuarios;
+        }
     }
 }
