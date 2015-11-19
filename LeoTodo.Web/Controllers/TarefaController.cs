@@ -1,95 +1,75 @@
-﻿using LeoTodo.Dominio.Entidades;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using LeoTodo.Dominio.Repositorios;
+using LeoTodo.Dominio.Servicos;
 using LeoTodo.Web.Fabrica;
 using LeoTodo.Web.Models;
-using LeoTodo.Web.Proxy;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
 namespace LeoTodo.Web.Controllers
 {
-    public class TarefaController : Controller
+    public class TarefaController : AutenticadoController
     {
         public ActionResult Index()
         {
-            listaTarefas();
-            return View();
+            var tarefa = new TarefaModel
+            {
+                TarefasConsultadas = ListaTarefasModel()
+            };
+            return View(tarefa);
         }
 
-        /// <summary>
-        /// Insere uma nova tarefa
-        /// </summary>
-        /// <param name="tarefa"></param>
-        /// <returns></returns>
         [HttpPost]
-        public ActionResult Post(TarefaModel tarefa)
+        public ActionResult Inserir(TarefaModel tarefa)
         {
-            TarefaProxy proxy = new TarefaProxy();
+            var usuario = this.UsuarioLogado;
 
-            tarefa.IdUsuario = ((Usuario)Session["UsuarioLogado"]).Id;
-            proxy.Incluir(tarefa.ToEntidade());
-            
+            if (usuario == null)
+            {
+                return View();
+            }
+
+            tarefa.IdUsuario = usuario.Id;
+
+            var tarefaDomainService = new TarefaDominioService();
+            tarefaDomainService.Incluir(tarefa.ToEntidade());
+
             return RedirectToAction("Index");
         }
 
-        /// <summary>
-        /// Consulta todas tarefas
-        /// </summary>
-        /// <param name="tarefa"></param>
-        /// <returns></returns>
-        [HttpGet]
-        public ActionResult Get(TarefaModel tarefa)
-        {
-            return View("Index");
-        }
-
-        /// <summary>
-        /// Edita uma tarefa
-        /// </summary>
-        /// <param name="tarefa"></param>
-        /// <returns></returns>
         [HttpPost]
-        public ActionResult Put(TarefaModel tarefa) 
+        public ActionResult Alterar(TarefaModel viewModel)
         {
-            TarefaProxy proxy = new TarefaProxy();
+            var entidade = viewModel.ToEntidade();
 
-            var tarefaAtual = proxy.ConsultarPorId(tarefa.Id);
-
-            tarefaAtual.Titulo = tarefa.Titulo.Trim();
-            tarefaAtual.Concluido = tarefa.Concluido;
-            tarefaAtual.DataAlteracao = DateTime.Now;
-
-            proxy.Alterar(tarefaAtual);
+            var tarefaDomainService = new TarefaDominioService();
+            tarefaDomainService.Alterar(entidade);
 
             return RedirectToAction("Index");
         }
 
-        /// <summary>
-        /// Delete uma tarefa
-        /// </summary>
-        /// <param name="tarefa"></param>
-        /// <returns></returns>
-        public ActionResult Delete(int id)
+        public ActionResult Deletar(int id)
         {
-            TarefaProxy proxy = new TarefaProxy();
-            proxy.Deletar(id);
+            var tarefaDomainService = new TarefaDominioService();
+            tarefaDomainService.Deletar(id);
 
             return RedirectToAction("Index");
         }
 
-        private void listaTarefas()
+        private List<TarefaModel> ListaTarefasModel()
         {
-            TarefaProxy proxy = new TarefaProxy();
+            if (this.UsuarioLogado != null)
+            {
+                var repositorioTarefa = new TarefaRepositorio();
 
-            var usuario = Session["UsuarioLogado"];
+                var listaTarefas = repositorioTarefa.ConsultarPorUsuario(this.UsuarioLogado.Id).ToList();
 
-            var listaTarefas = proxy.ConsultarPorUsuario(((Usuario)usuario).Id).ToList();
+                var listaTarefasModel = listaTarefas.Select(TarefaFabrica.Criar).ToList();
 
-            var listaTarefasModel = listaTarefas.Select(TarefaFabrica.Criar).ToList();
+                return listaTarefasModel;
+            }
 
-            ViewBag.ListaTarefas = listaTarefasModel;
+            return null;
         }
     }
 }

@@ -1,53 +1,40 @@
-﻿using LeoTodo.Dominio.Entidades;
+﻿using System;
+using LeoTodo.Dominio.Entidades;
 using LeoTodo.Dominio.Repositorios;
-using System;
-using System.Collections.Generic;
 
 namespace LeoTodo.Dominio.Servicos
 {
     public class TarefaDominioService
     {
-        TarefaRepositorioLeitura repositorioLeitura = new TarefaRepositorioLeitura();
-        TarefaRepositorioEscrita repositorioEscrita = new TarefaRepositorioEscrita();
-
-
-        public Tarefa ConsultarPorId(int id)
-        {
-            var retorno = repositorioLeitura.ConsultarPorId(id);
-
-            return retorno;
-        }
-
-        public IEnumerable<Tarefa> ConsultarTodas()
-        {
-            var retorno = repositorioLeitura.ConsultarTodas();
-
-            return retorno;
-        }
-
         public Tarefa Incluir(Tarefa tarefa)
         {
-            var tarefaNova = repositorioEscrita.Inserir(tarefa);
+            var repositorioTarefa = new TarefaRepositorio();
+
+            var tarefaNova = repositorioTarefa.Inserir(tarefa);
 
             return tarefaNova;
         }
 
         public void Alterar(Tarefa tarefa)
         {
-            repositorioEscrita.Alterar(tarefa);
+            var repositorioTarefa = new TarefaRepositorio();
+
+            var tarefaAtual = repositorioTarefa.ConsultarPorId(tarefa.Id);
+
+            tarefaAtual.Titulo = tarefa.Titulo.Trim();
+            tarefaAtual.Concluido = tarefa.Concluido;
+            tarefaAtual.DataAlteracao = DateTime.Now;
+
+            repositorioTarefa.Alterar(tarefaAtual);
         }
 
         public void Deletar(int id)
         {
-            var tarefaBanco = repositorioLeitura.ConsultarPorId(id);
-            repositorioEscrita.Deletar(tarefaBanco);
-        }
+            var repositorioTarefa = new TarefaRepositorio();
 
-        public IEnumerable<Tarefa> ConsultarPorUsuario(int id)
-        {
-            var listaUsuarios = repositorioLeitura.ConsultarPorUsuario(id);
+            var tarefaBanco = repositorioTarefa.ConsultarPorId(id);
 
-            return listaUsuarios;
+            repositorioTarefa.Deletar(tarefaBanco);
         }
     }
 }

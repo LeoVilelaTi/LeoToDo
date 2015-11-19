@@ -1,11 +1,8 @@
-﻿using LeoTodo.Web.Models;
-using LeoTodo.Web.Proxy;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Security;
+using LeoTodo.Dominio.Repositorios;
+using LeoTodo.Dominio.Servicos;
+using LeoTodo.Web.Models;
 
 namespace LeoTodo.Web.Controllers
 {
@@ -16,23 +13,25 @@ namespace LeoTodo.Web.Controllers
             return View(new LoginModel());
         }
 
-        public ActionResult LogIn(LoginModel login)
+        public ActionResult Login(LoginModel login)
         {
-            LoginProxy LoginProxy = new LoginProxy();
-            UsuarioProxy UsuarioProxy = new UsuarioProxy();
-
-
-            if (LoginProxy.Autenticacao(login.Identificador, login.Senha))
+            if (ModelState.IsValid)
             {
-                var usuario = UsuarioProxy.ConsultarUsuarioPorIdentificador(login.Identificador);
+                var usuarioDominio = new UsuarioDominioServico();
+                var RepositorioUsuario = new UsuarioRepositorio();
 
-                FormsAuthentication.SetAuthCookie(login.Identificador, false);
-                Session["UsuarioLogado"] = usuario;
+                if (usuarioDominio.Autenticar(login.Identificador, login.Senha))
+                {
+                    var usuario = RepositorioUsuario.ConsultarUsuarioPorIdentificador(login.Identificador);
 
-                return RedirectToAction("Index", "Home");
+                    FormsAuthentication.SetAuthCookie(login.Identificador, false);
+                    Session["UsuarioLogado"] = usuario;
+
+                    return RedirectToAction("Index", "Home");
+                }
             }
-
-            return RedirectToAction("Index");
+            
+            return View("Index", login);
         }
 
         public ActionResult LogOut()

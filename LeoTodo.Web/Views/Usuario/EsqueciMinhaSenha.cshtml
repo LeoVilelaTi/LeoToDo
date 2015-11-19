@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Tela de esqueci minha senha </title>
+
+    @Styles.Render("~/CSS")
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="header">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"> Projeto ToDo</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+            <div class="jumbotron">
+                <p> Recupere sua senha através de seu email </p>
+                @using (@Html.BeginForm("EnviaEmailAlteracaoDeSenha", "Usuario"))
+                {
+                    <div class="form-group">
+                        @Html.TextBox("Email", null, new { @class = "form-control", placeholder = "Digite seu Email..." })
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success"> Enviar </button>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
+</body>
+</html>

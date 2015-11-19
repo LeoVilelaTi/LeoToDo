@@ -1,4 +1,5 @@
-﻿
+﻿@model List<LeoTodo.Web.Models.TarefaModel>
+
 @{
     Layout = null;
 }
@@ -13,10 +14,10 @@
         </tr>
     </thead>
 
-    @foreach (LeoTodo.Web.Models.TarefaModel tarefa in ViewBag.ListaTarefas)
+    @foreach (LeoTodo.Web.Models.TarefaModel tarefa in Model)
     {
         <tbody>
-            @using (@Html.BeginForm("Put", "Tarefa", FormMethod.Post))
+            @using (@Html.BeginForm("Alterar", "Tarefa", FormMethod.Post))
             {
                 <tr>
                     <td class="text-center">
@@ -28,7 +29,7 @@
                     </td>
                     <td class="text-center">
                         <button name="Id" class="btn btn-warning" type="submit" role="button"> Atualizar </button>
-                        <a href="~/Tarefa/Delete/@tarefa.Id" class="btn btn-danger" role="button"> Excluir </a>
+                        <a href="~/Tarefa/Deletar/@tarefa.Id" class="btn btn-danger" role="button"> Excluir </a>
                     </td>
                 </tr>
             }

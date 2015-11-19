@@ -1,9 +1,5 @@
 ﻿using LeoTodo.Dominio.Entidades;
 using LeoTodo.Web.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace LeoTodo.Web.Fabrica
 {

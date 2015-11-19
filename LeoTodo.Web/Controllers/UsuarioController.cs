@@ -1,12 +1,8 @@
-﻿using LeoTodo.Dominio.Entidades;
-using LeoTodo.Web.Fabrica;
+﻿using System.Web.Mvc;
+using LeoTodo.Dominio.Entidades;
+using LeoTodo.Dominio.Repositorios;
+using LeoTodo.Dominio.Servicos;
 using LeoTodo.Web.Models;
-using LeoTodo.Web.Proxy;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
 namespace LeoTodo.Web.Controllers
 {
@@ -14,75 +10,29 @@ namespace LeoTodo.Web.Controllers
     {
         public ActionResult Index()
         {
-            listaUsuarios();
             return View(new UsuarioModel());
         }
 
-        /// <summary>
-        /// Insere uma novo usuário
-        /// </summary>
-        /// <param name="tarefa"></param>
-        /// <returns></returns>
         [HttpPost]
-        public ActionResult Post(UsuarioModel usuario)
+        public ActionResult Inserir(UsuarioModel usuario)
         {
-            UsuarioProxy proxy = new UsuarioProxy();
-            proxy.Incluir(usuario.ToEntidade());
+            if (ModelState.IsValid)
+            {
+                var usuarioDominio = new UsuarioDominioServico();
+                usuarioDominio.Incluir(usuario.ToEntidade());
+            }
+            else
+            {
+                return View("Index", usuario);
+            }
 
             return PartialView("~/Views/Usuario/NovoUsuarioCadastrado.cshtml");            
         }
 
-        /// <summary>
-        /// Consulta todas os usuários
-        /// </summary>
-        /// <param name="tarefa"></param>
-        /// <returns></returns>
-        [HttpGet]
-        public ActionResult Get(UsuarioModel usuario)
-        {
-            return View("Index");
-        }
-
-        /// <summary>
-        /// Edita um usuário
-        /// </summary>
-        /// <param name="tarefa"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public ActionResult Put(UsuarioModel usuario)
-        {
-            UsuarioProxy proxy = new UsuarioProxy();
-
-            var usuarioAtual = proxy.ConsultarPorId(usuario.Id);
-
-            usuarioAtual.Identificador = usuario.Identificador;
-            usuarioAtual.Nome = usuario.Nome;
-            usuarioAtual.Email = usuario.Email;
-            usuarioAtual.DataAlteracao = DateTime.Now;
-
-
-            proxy.Alterar(usuarioAtual);
-
-            return RedirectToAction("Index");
-        }
-
-        /// <summary>
-        /// Delete um usuário
-        /// </summary>
-        /// <param name="tarefa"></param>
-        /// <returns></returns>
-        public ActionResult Delete(int id)
-        {
-            UsuarioProxy proxy = new UsuarioProxy();
-            proxy.Deletar(id);
-
-            return RedirectToAction("Index");
-        }
-
         public ActionResult PrimeiroAcesso(string identificador, string guid)
         {
-            LoginProxy proxy = new LoginProxy();
-            bool valido = proxy.UsuarioAtivado(identificador, guid);
+            var usuarioDominio = new UsuarioDominioServico();
+            var valido = usuarioDominio.UsuarioAtivado(identificador, guid);
 
             if (valido)
             {
@@ -99,36 +49,25 @@ namespace LeoTodo.Web.Controllers
             return View();
         }
 
-        public ActionResult EnviaEmailParaRecuperacaoSenha(string email)
+        public ActionResult EnviaEmailAlteracaoDeSenha(string email)
         {
-            UsuarioProxy proxy = new UsuarioProxy();
-            proxy.EnviaEmailParaRecuperacaoSenha(email);
+            var usuarioDominio = new UsuarioDominioServico();
+            usuarioDominio.EnviarEmailAlteracaoDeSenha(email);
 
-            return PartialView("~/Views/Usuario/EnvioDeEmailParaRedefinicaoSenha.cshtml");
+            return PartialView("~/Views/Usuario/EnviaEmailAlteracaoDeSenha.cshtml");
         }
 
         public ActionResult RedefinirSenha(string identificador, string guid)
         {
-            LoginProxy proxyLogin = new LoginProxy();
-            bool valido = proxyLogin.UsuarioAtivado(identificador, guid);
+            var usuarioDominio = new UsuarioDominioServico();
+            bool valido = usuarioDominio.UsuarioAtivado(identificador, guid);
 
             if (valido)
             {
-                UsuarioProxy proxyUsuario = new UsuarioProxy();
-                var usuario = proxyUsuario.ConsultarUsuarioPorIdentificador(identificador);
-
                 var usuarioModel = new UsuarioModel
                 {
-                    Id = usuario.Id,
-                    Identificador = usuario.Identificador,
-                    Nome = usuario.Nome,
-                    Email = usuario.Email,
-                    Senha = usuario.Senha,
-                    GuidUsuarioAtivo = usuario.GuidUsuarioAtivo,
-                    DataInclusao = usuario.DataInclusao,
-                    DataAlteracao = usuario.DataAlteracao
+                    Identificador = identificador
                 };
-
 
                 return View(usuarioModel);
             }
@@ -140,26 +79,10 @@ namespace LeoTodo.Web.Controllers
 
         public ActionResult ResetSenha(Usuario usuario)
         {
-            UsuarioProxy proxy = new UsuarioProxy();
-
-            var usuarioAtual = proxy.ConsultarUsuarioPorIdentificador(usuario.Identificador);
-
-            usuarioAtual.Senha = usuario.Senha;
-            usuarioAtual.DataAlteracao = DateTime.Now;
-
-            proxy.ResetSenha(usuarioAtual);
+            var usuarioDominio = new UsuarioDominioServico();
+            usuarioDominio.ResetSenha(usuario);
 
             return RedirectToAction("Index", "Login");
-        }
-
-        private void listaUsuarios()
-        {
-            UsuarioProxy proxy = new UsuarioProxy();
-            var listaUsuarios = proxy.ConsultarTodas();
-
-            var listaUsuariosModel = listaUsuarios.Select(UsuarioFabrica.Criar).ToList();
-
-            ViewBag.ListaUsuarios = listaUsuariosModel;
         }
     }
 }

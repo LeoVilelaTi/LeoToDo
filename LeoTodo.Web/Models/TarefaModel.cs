@@ -1,8 +1,6 @@
 ﻿using LeoTodo.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace LeoTodo.Web.Models
 {
@@ -14,6 +12,8 @@ namespace LeoTodo.Web.Models
         public bool Concluido { get; set; }
         public DateTime DataInclusao { get; set; }
         public DateTime? DataAlteracao { get; set; }
+
+        public List<TarefaModel> TarefasConsultadas { get; set; }
 
         public Tarefa ToEntidade()
         {

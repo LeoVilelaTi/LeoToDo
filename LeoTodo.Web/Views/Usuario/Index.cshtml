@@ -43,28 +43,32 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-8">
-                @using (@Html.BeginForm("Post", "Usuario", FormMethod.Post))
+                @using (@Html.BeginForm("Inserir", "Usuario", FormMethod.Post))
                 {
                     <div class="form-group">
                         <div class="col-xs-4">
                             <div class="form-group">
                                 <label for="Identificador"> Usuario </label>
                                 @Html.TextBox("Identificador", Model.Identificador, new { @class = "form-control", placeholder = "Digite seu Usuário..." })
+                                @Html.ValidationMessage("Identificador", new { @class="textoAlerta" })
                             </div>
 
                             <div class="form-group">
                                 <label for="Nome"> Nome </label>
                                 @Html.TextBox("Nome", Model.Nome, new { @class = "form-control", placeholder = "Digite seu Nome..." })
+                                @Html.ValidationMessage("Nome", new { @class = "textoAlerta" })
                             </div>
 
                             <div class="form-group">
                                 <label for="Email"> Email </label>
                                 @Html.TextBox("Email", Model.Email, new { @class = "form-control", placeholder = "Digite seu Email..." })
+                                @Html.ValidationMessage("Email", new { @class = "textoAlerta" })
                             </div>
 
                             <div class="form-group">
                                 <label for="Senha"> Senha </label>
                                 @Html.TextBox("Senha", Model.Senha, new { @class = "form-control", type = "password", placeholder = "Digite sua Senha..." })
+                                @Html.ValidationMessage("Senha", new { @class = "textoAlerta" })
                             </div>
 
                             <div class="form-group text-right">

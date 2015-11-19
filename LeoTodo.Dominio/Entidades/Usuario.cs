@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LeoTodo.Dominio.InfraEstrutura;
 
 namespace LeoTodo.Dominio.Entidades
 {
@@ -16,6 +13,29 @@ namespace LeoTodo.Dominio.Entidades
         public string GuidUsuarioAtivo { get; set; }
         public DateTime DataInclusao { get; set; }
         public DateTime? DataAlteracao { get; set; }
+
+        public void CriptografarSenha()
+        {
+            this.Senha = Criptografia.CriptografaSenha(this.Senha);
+        }
+
+        public bool SenhaEhCorreta(string senhaDigitada)
+        {
+            var senhaDigitadaCriptografada = Criptografia.CriptografaSenha(senhaDigitada);
+
+            if (Senha.Trim() == senhaDigitadaCriptografada)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public void GerarGuidParaUsuario()
+        {
+            var guid = Guid.NewGuid();
+            this.GuidUsuarioAtivo = guid.ToString();
+        }
 
         public override bool Validar()
         {
